@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>淘宝精品鞋子</title>
+    <script src="jquery.min.js"></script>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            font-size: 12px;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        .wrapper {
+            width: 250px;
+            height: 303px;
+            margin: 100px auto 0;
+            border: 1px solid pink;
+            border-right: 0;
+            overflow: hidden;
+        }
+        
+        #left,
+        #content {
+            float: left;
+        }
+        
+        #left li {
+            background: url(images/lili.jpg) repeat-x;
+        }
+        
+        #left li a {
+            display: block;
+            width: 48px;
+            height: 27px;
+            border-bottom: 1px solid pink;
+            line-height: 27px;
+            text-align: center;
+            color: black;
+        }
+        
+        #left li a:hover {
+            background-image: url(images/abg.gif);
+        }
+        
+        #content {
+            border-left: 1px solid pink;
+            border-right: 1px solid pink;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <ul id="left">
+            <li><a href="#">黄伟</a></li>
+            <li><a href="#">永虎</a></li>
+            <li><a href="#">红兵</a></li>
+            <li><a href="#">成主</a></li>
+            <li><a href="#">振华</a></li>
+            <li><a href="#">修伦</a></li>
+            <li><a href="#">刘毅</a></li>
+            <li><a href="#">杨呈</a></li>
+            <li><a href="#">一鸣</a></li>
+            <li><a href="#">炳旺</a></li>
+            <li><a href="#">自豪</a></li>
+        </ul>
+        <div id="content">
+            <div>
+                <a href="#"><img src="images/黄伟.jpg" width="200" height="303" /></a>
+            </div>
+            <div>
+                <a href="#"><img src="images/永虎.jpg" width="200" height="303" /></a>
+            </div>
+            <div>
+                <a href="#"><img src="images/红兵.jpg" width="200" height="303" /></a>
+            </div>
+            <div>
+                <a href="#"><img src="images/成主.jpg" width="200" height="303" /></a>
+            </div>
+            <div>
+                <a href="#"><img src="images/振华.jpg" width="200" height="303" /></a>
+            </div>
+            <div>
+                <a href="#"><img src="images/修伦.jpg" width="200" height="303" /></a>
+            </div>
+            <div>
+                <a href="#"><img src="images/刘毅.jpg" width="200" height="303" /></a>
+            </div>
+            <div>
+                <a href="#"><img src="images/杨呈.jpg" width="200" height="303" /></a>
+            </div>
+            <div>
+                <a href="#"><img src="images/一鸣.jpg" width="200" height="303" /></a>
+            </div>
+            <div>
+                <a href="#"><img src="images/炳旺.jpg" width="200" height="303" /></a>
+            </div>
+            <div>
+                <a href="#"><img src="images/自豪.jpg" width="200" height="303" /></a>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <script>
+        $(function() {
+            //鼠标经过左侧小li
+            $('#left li').mouseover(function() {
+                // 2. 得到当前小li 的索引号
+                var index = $(this).index();
+                // 3. 让我们右侧的盒子相应索引号图片显示出来
+                // $('#content div').eq(index).show();
+                // // 4. 让其余的图片（就是其他的兄弟）隐藏起来
+                // $('#content div').eq(index).siblings().hide();
+
+                //链式编程  
+                $('#content div').eq(index).show().siblings().hide();
+            })
+        })
+    </script>
+</body>
+
+</html>

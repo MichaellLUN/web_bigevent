@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>股票</title>
+    <script src="jquery.min.js"></script>
+</head>
+<style>
+    li:nth-child(odd) {
+        background-color: green;
+    }
+    
+    li:nth-child(even) {
+        background-color: blue;
+    }
+    
+    li:hover {
+        background-color: red;
+        position: none;
+    }
+</style>
+
+<body>
+    <table></table>
+    <ul>
+        <li>股票一股票一</li>
+        <li>股票二股票二</li>
+        <li>股票三股票三</li>
+        <li>股票四股票四</li>
+        <li>股票五股票五</li>
+        <li>股票六股票六</li>
+        <li>股票七股票七</li>
+        <li>股票八股票八</li>
+        <li>股票九股票九</li>
+        <li>股票十股票十</li>
+    </ul>
+    </table>
+</body>
+<script>
+    $(function() {
+        $('ul li').mouseover(function() {
+            let index = $(this).index();
+            $('#content div').eq(index).show().siblings().hide();
+        })
+    })
+</script>
+
+</html>

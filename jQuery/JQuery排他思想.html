@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQ排他思想</title>
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+    我的body的文字
+    <button>拔枪射击</button>
+    <button>拔枪射击</button>
+    <button>拔枪射击</button>
+    <button>拔枪射击</button>
+    <button>拔枪射击</button>
+    <button>拔枪射击</button>
+    <button>拔枪射击</button>
+</body>
+<script>
+    $(function() {
+        //1. 隐士迭代 给所有按钮都绑定了点击时间
+        $('button').click(function() {
+            // 2. 当前的元素变化背景颜色
+            //$(this).css('background', 'cornflowerblue');
+            // 3. iqyu的兄弟去掉背景颜色;
+            //$(this).siblings('button').css('background', '');
+            // 4. 链式编程
+            // $(this).css('background', 'cornflowerblue').siblings().css('background', '')
+
+            //我的颜色为红 我的兄弟颜色为空
+            // $(this).siblings().css('color', 'red');
+
+            // 最后是给我兄弟得爸爸 变色 body
+            $(this).siblings().parent().css('color', 'cornflowerblue');
+        })
+    })
+</script>
+
+</html>

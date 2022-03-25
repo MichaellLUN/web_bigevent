@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOMjQuery对象转换</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: cornflowerblue;
+        }
+    </style>
+</head>
+
+<body>
+    <video src="../2022学期/玛卡巴卡.mp4" muted></video>
+    <script>
+        //  1. DOM对象转换为 jQuery对象
+        // （1）直接获取就是jQuery对象
+        // $('video');  第一种方法
+        // （2）我们已经使用原生js 获取过来DOM对象
+        var myvideo = document.querySelector('video');
+        // $(myvideo); // jQuery里没有play对象
+
+        // 2.jQuery对象转换为 DOM对象
+        // myvideo.play();  第一种方法
+        // $('video')[0].play();  第二种方法
+        $('video').get(0).play(); //第三种方法
+    </script>
+
+</body>
+
+</html>

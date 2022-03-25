@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.min.js"></script>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: cornflowerblue;
+        }
+        
+        .current {
+            background-color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <ul>
+        <li>先有香哥后有天</li>
+        <li>先有香哥后有天</li>
+        <li>先有香哥后有天</li>
+        <li>先有香哥后有天</li>
+        <li>先有香哥后有天</li>
+    </ul>
+    <ol>
+
+
+    </ol>
+    <script>
+        $(function() {
+            // 单个事件注册
+            // $('div').click(function() {
+            //         $(this).css("background", 'cornflowerblue')
+            //     })
+            //     // 麻烦 要分开写
+            // $('div').mouseenter(function() {
+            //     $(this).css("background", 'red')
+            // })
+
+            //事件处理 on 多个事件集合写
+            // $('div').on({
+            //         mouseenter: function() {
+            //             $(this).css("background", 'red')
+            //         },
+            //         click: function() {
+            //             $(this).css("background", 'cornflowerblue')
+            //         },
+            //         mouseleave: function() {
+            //             $(this).css("background", 'green')
+            //         }
+            //     })
+            // 绑定多个事件 优势
+
+            $('div').on('mouseenter mouseleave', function() {
+                    $(this).toggleClass('current');
+                }) // 简化书写  绑定一个和多个
+
+            // on 事件委托
+            // $('ul li').click
+            $('ul').on('click', 'li', function() {
+                alert(11)
+                    // click 是绑定在ul上的 但是作用是在li上的
+            });
+
+            // on可以给动态创建的元素绑定事件
+            // $('ol li').click(function() {
+            //     alert(11)// 未来时间 赶不上
+            // })
+
+            $('ol').on('click', 'li', function() {
+                alert(11) // 绑定
+            })
+            let li = $('<li> 我是后来创建的</li>')
+            $('ol').append(li) // 给未来动态元素创建
+        })
+    </script>
+</body>
+
+</html>

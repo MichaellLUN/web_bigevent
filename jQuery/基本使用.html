@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: cornflowerblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        // $('div').hide();
+        // 等着页面加载完毕再去执行JS代码
+        // $(document).ready(function(){
+        //     $('div').hide();
+        // })  等同于等着dom完毕再去执行
+
+        // $ 美元符号等同于 jQuery      $ 顶级对象
+        // jQuery(function() {
+        //     jQuery('div').hide();
+        // })
+
+        $(function() {
+                $('div').hide();
+            })
+            //等着DOM结构选软完毕即可执行内部代码 
+            // 不必等到所有外部资源加载完成 Jquery帮我们完成了封装
+            // 相当于 原生JS中的 DOMContenLoaded
+            // 不同于原生JS中的等待
+            // 更推荐第一种
+    </script>
+    <div></div>
+</body>
+
+</html>

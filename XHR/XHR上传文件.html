@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<center>
+    <!-- //文件选择框 -->
+    <input type="file" id="file1" />
+    <!-- 上传文件的按钮 -->
+    <button id="btnUpload">上传文件的按钮</button>
+    <br />
+    <!-- img标签 来显示上传成功以后的图片 -->
+    <img src="" alt="" id="img" width="800">
+</center>
+
+<body>
+    <script>
+        // 获取到文件上传按钮
+        let btnUpload = document.querySelector('#btnUpload')
+            // 为按钮绑定单机事件处理函数
+        btnUpload.addEventListener('click', function() {
+            // 获取到用户选择的文件列表
+            let files = document.querySelector('#file1').files
+            if (files.length <= 0) {
+                // 查看是否有文件
+                return alert('请选择要上传的文件！')
+            }
+            // console.log('用户选择了待上传的文件');
+            let fd = new FormData()
+                //向FOrmData中追加文件 用户头像
+            fd.append('avatar', files[0])
+
+
+            let xhr = new XMLHttpRequest()
+            xhr.open('POST', 'http://www.liulongbin.top:3006/api/upload/avatar')
+                // 发起请求
+            xhr.send(fd)
+                // 监听验证
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    let data = JSON.parse(xhr.responseText)
+                        //数据解析成字符串
+                        // console.log(data);
+                        //判断是否创建成功
+                    if (data.status === 200) {
+                        //上传成功
+
+                        document.querySelector('#img').src = 'http://www.liulongbin.top:3006' + data.url
+
+                    } else {
+                        //s上传失败
+                        console.log('图片上传失' + data.message);
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

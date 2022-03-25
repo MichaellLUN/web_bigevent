@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./template-web.js"></script>
+    <!-- 导入后 全局会添加一个 template 函数 添加参数 -->
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="container"></div>
+
+    <!-- 定义模板一定要在 script 中 ！！！-->
+    <!-- //一定要 text/html -->
+    <script type="text/html" id="tpl-user">
+        <h1>{{name}} ----- {{age}} {{@ test}}</h1>
+
+        <!-- 双引号 占位符 展示 后面的数据 -->
+
+        <div>
+            {{if flag ===0}} flag的值是0 {{else if flag ===0}} flag的值是1 {{/if}}
+        </div>
+
+        <ul>
+            {{each hobby}}
+            <li>索引是:{{$index}}，循环项是:{{$value}}</li>
+            {{/each}}
+        </ul>
+
+        <h3>{{regTime | dateFormat}}</h3>
+
+    </script>
+
+
+
+    <script>
+        // 定义处理事件的过滤器
+        template.defaults.imports.dateFormat = function(date) {
+            let y = date.getFullYear()
+            let m = date.getMonth() + 1
+            let d = date.getDate()
+
+            return y + '-' + m + '-' + d
+        }
+
+        // 添加数据 定义需要渲染的数据
+        let data = {
+            name: '张三',
+            age: 20,
+            test: "<h3>测试文字测试文字</h3>",
+            flag: 0,
+            hobby: ['吃饭', '睡觉', '打豆豆'],
+            regTime: new Date()
+        }
+
+
+        // 调用函数
+        let htmlStr = template('tpl-user', data) //渲染内容
+        console.log(htmlStr);
+
+        $("#container").html(htmlStr) //实例化 展示
+    </script>
+</body>
+
+</html>

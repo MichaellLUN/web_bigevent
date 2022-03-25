@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        body {
+            height: 2000px;
+        }
+        
+        .back {
+            position: fixed;
+            width: 50px;
+            height: 50px;
+            background-color: pink;
+            right: 30px;
+            bottom: 100px;
+            display: none;
+        }
+        
+        .container {
+            width: 900px;
+            height: 500px;
+            background-color: skyblue;
+            margin: 400px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="back">返回顶部</div>
+    <div class="container"></div>
+</body>
+<script>
+    $(function() {
+        // 直接刷新跳转操作 设置
+        $(document).scrollTop(100);
+        // 被卷去的头部 scrollTop()  / 被卷去的左侧 scrollleft()
+        // 页面滚动事件
+        let boxTop = $('.container').offset().top;
+        $(window).scroll(function() {
+                // console.log($(document).scrollTop());
+                console.log($(document).scrollTop());
+                if ($(document).scrollTop() >= boxTop) {
+                    $('.back').fadeIn();
+                } else {
+                    $('.back').fadeOut();
+                }
+            })
+            // 返回顶部
+        $('.back').click(function() {
+            // $(document).animate(0);
+            $('body, html').stop().animate({
+                    scrollTop: 0
+                }) //只有元素才能做动画 文档不可以!!! 
+                // body 和 html 元素做动画
+        })
+    })
+</script>
+
+</html>

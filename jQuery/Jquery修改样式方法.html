@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jq修改样式</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: cornflowerblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        //样式操作方法
+        $(function() {
+            console.log($('div').css('width'));
+            // 属性名必须加引号 用逗号分隔 数字无所谓 
+            // $('div').css('width', '300px'); 
+            // $('div').css('width', 300);
+            $('div').css({
+                width: 400,
+                height: 400,
+                //符合属性必须符合 驼峰命名 如果值不是数字 要加引号 “ ”
+                backgroundColor: 'aliceblue'
+            })
+
+        })
+    </script>
+</body>
+
+</html>

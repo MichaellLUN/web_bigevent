@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        table {
+            width: 400px;
+            height: 150px;
+            border-collapse: collapse;
+            text-align: center;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-top: -100px;
+            margin-left: -350px;
+        }
+        
+        td,
+        th {
+            border: 1px solid;
+        }
+        
+        .zeo-color {
+            background-color: cornflowerblue;
+        }
+        
+        .two-color {
+            background-color: rgb(199, 106, 241);
+        }
+        
+        .four-color {
+            background-color: rgb(199, 106, 241);
+        }
+        
+        .one-color:hover {
+            background-color: red;
+            /* background: url(images/黄伟.jpg); */
+        }
+        
+        .two-color:hover {
+            background-color: red;
+            /* background: url(images/成主.jpg); */
+        }
+        
+        .three-color:hover {
+            background-color: red;
+            /* background: url(images/永虎.jpg); */
+        }
+        
+        .four-color:hover {
+            background-color: red;
+            /* background: url(images/修伦.jpg); */
+        }
+        
+        .all {
+            display: none;
+        }
+        
+        .hw {
+            width: 100%;
+            height: 100%;
+            width: 200px;
+            height: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <table class="king">
+            <tr class="zeo-color">
+                <th>学号</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+                <th>籍贯</th>
+            </tr>
+            <tr class="one-color">
+                <th class="text-small">01</th>
+                <th class="text-small">张三</th>
+                <th class="text-small">21</th>
+                <th class="text-small">男</th>
+                <th class="text-small">四川</th>
+            </tr>
+            <tr class="two-color">
+                <th class="text-small">02</th>
+                <th class="text-small">李四</th>
+                <th class="text-small">18</th>
+                <th class="text-small">女</th>
+                <th class="text-small">广西</th>
+            </tr>
+            <tr class="three-color">
+                <th class="text-small">03</th>
+                <th class="text-small">王五</th>
+                <th class="text-small">25</th>
+                <th class="text-small">女</th>
+                <th class="text-small">吉林</th>
+            </tr>
+            <tr class="four-color">
+                <th class="text-small">04</th>
+                <th class="text-small">玄六</th>
+                <th class="text-small">31</th>
+                <th class="text-small">男</th>
+                <th class="text-small">河北</th>
+            </tr>
+        </table>
+    </div>
+
+    <div class="all">
+
+        <img src="images/黄伟.jpg" alt="#" class="hw">
+
+        <img src="images/一鸣.jpg" alt="#" class="ym">
+
+        <img src="images/修伦.jpg" alt="#" class="xl">
+
+        <img src="images/成主.jpg" alt="#" class="cz">
+
+    </div>
+</body>
+<script>
+    $(function() {
+        $('th text-small').mouseover(function() {
+            let index = $(this).index();
+            $('#content div').eq(index).show().siblings().hide();
+        });
+        $('.th one-color').mouseover(function() {
+            $('.all img').animate({
+                display: block
+            })
+        });
+
+    })
+</script>
+
+</html>

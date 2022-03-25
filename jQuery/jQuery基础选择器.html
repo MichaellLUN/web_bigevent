@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基础选择器</title>
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+    <div>麦克杰克伦</div>
+    <div>麦克杰克伦</div>
+    <div>麦克杰克伦</div>
+    <div>麦克杰克伦</div>
+
+    <div class="nav">MichaelLUN</div>
+    <p>我是p</p>
+    <ol>
+        <li>我是ol的</li>
+        <li>我是ol的</li>
+        <li>我是ol的</li>
+        <li>我是ol的</li>
+    </ol>
+    <ul>
+        <li>我是ul的</li>
+        <li>我是ul的</li>
+        <li>我是ul的</li>
+        <li>我是ul的</li>
+    </ul>
+    <script>
+        $(function() {
+            //基本选择器
+            console.log($('.nav'));
+
+            //层级选择器
+            console.log($('ul li'));
+        })
+
+        //1.获取四个div元素
+        console.log($('div')); //jQuery不能使用 style方法
+
+        //2.给四个div设置背景颜色为蓝色 cornf
+        $('div').css('background', 'cornflowerblue');
+        //隐式迭代 遍历内部元素 全部迭代 每个元素添加css 
+        //把匹配的所有元素
+        $('ul li').css('color', 'red');
+    </script>
+</body>
+
+</html>
