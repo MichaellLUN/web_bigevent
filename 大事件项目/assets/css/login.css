@@ -1,17 +1,19 @@
 html,
 body {
+    position: fixed;
     margin: 0;
     padding: 0;
     height: 100%;
     width: 100%;
-    background: url('/大事件项目/assets/images/login_bg.jpg') no-repeat center;
+    background: url('/大事件项目/assets/images/11111.gif') no-repeat center;
     background-size: cover;
 }
 
 .loginAndRegBox {
     width: 400px;
     height: 310px;
-    background-color: #fff;
+    /* color: #FFF; */
+    background-color: rgba(0, 0, 0, 0.5);
     position: absolute;
     left: 50%;
     top: 50%;
@@ -20,7 +22,8 @@ body {
 
 .title-box {
     height: 60px;
-    background: url('../images/login_title.png') no-repeat center
+    background: url('../images/login_title.png') no-repeat center;
+    background-size: 70%;
 }
 
 .reg-box {
