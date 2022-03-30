@@ -44,7 +44,7 @@ function getUserInfo() {
         //     // console.log('执行了 complete回调');
         //     // console.log(res);
         //     // 在complete 回调函数中 可以使用 res.response拿到服务器响应回来的参数
-        //     if (res.responseJSON.stasus === 1 && res.responseJSON.message === '身份验证失败！') {
+        //     if (res.responseJSON.status === 1 && res.responseJSON.message === '身份验证失败！') {
         //         // 强制 清空token
         //         localStorage.removeItem('token')
         //             // 强制跳转到登录页面
